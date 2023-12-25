@@ -19,7 +19,7 @@ This is where Docker comes in as it allows you to package your application and r
 
 ## Virtual Machines v/s Containers
 
-![Conatainers are not smaller VMS](image.png)
+![Containers are not smaller VMS](assets/vm-vs-container.png)
 
 #### Containers
 
@@ -43,7 +43,7 @@ This is where Docker comes in as it allows you to package your application and r
 
 Containers are composed of **Control Groups** and **Namespaces**. **Namespaces** define what resources containers can access on its host and **Control Groups** define how much of these resources containers can consume.
 
-![Life of a container](image-1.png)
+![Life of a container](assets/creating-containers.png)
 
 > **Container runtimes automate all of the above for us.**
 
@@ -112,3 +112,5 @@ Containers are composed of **Control Groups** and **Namespaces**. **Namespaces**
 - **/var/lib/docker/overlay**: Container Volumes
 - **/var/run/docker.sock**: The pipe between the Docker Client and Docker Engine
 - **/etc/docker/daemon.json**: Docker Engine Configuration (might not exist at first).
+
+## How does Docker work underneath the hood?

@@ -2,7 +2,7 @@
 
 We will be running the `hello-world-app` in a  Docker container now.
 
-**Instructions**
+**Instructions for Dockerfile**
 1. Start with an OS.
 2. Install Python.
 3. Copy application files.
