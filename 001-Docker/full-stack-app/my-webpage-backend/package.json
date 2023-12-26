@@ -1,0 +1,15 @@
+{
+  "name": "my-webpage",
+  "version": "1.0.0",
+  "description": "Webpage that tells you how many times a page has been viewed.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aryan Khurana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}

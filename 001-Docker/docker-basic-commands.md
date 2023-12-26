@@ -112,3 +112,28 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images)
 ```
 **Note:** You can also just specify the image ID to delete a single image.
+
+> Performance of containers
+```bash
+docker stats
+```
+
+> Shows details about a container
+```bash
+docker inspect <container_name>
+```
+
+> Display the running processes of a Docker container
+```bash
+docker top <container_id>
+```
+
+> Clean up the Docker system by removing unused data such as stopped containers, dangling images, and other resources that are not in use
+```bash
+docker system prune
+```
+
+> Display information about the disk space usage of the root file system (/)
+```bash
+df -h /
+```
