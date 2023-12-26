@@ -1,14 +1,16 @@
 # Introduction to Docker
 
 Sometimes we come across situations where a software runs on one machine but doesn't work on the other. This can happen because:
+
 1. One or more files are missing
 2. Software version mismatch
 3. Different configuration settings
 4. Hardware Dependencies
 
 #### Previous Solutions
-- Configuration Management Tools such as Chef, Puppet and Ansible. These require knowledge about Hardware and Operating Systems.
-- Virtual Machines as Code (Vagrant). These are heavey, slow and require inconvenient configuration.
+
+- Configuration Management Tools such as **Chef**, **Puppet** and **Ansible**. These require knowledge about Hardware and Operating Systems.
+- **Virtual Machines as Code (Vagrant)**. These are heavy, slow and require inconvenient configuration.
 
 This is where Docker comes in as it allows you to package your application and run it on any machine that runs Docker. If someone joins your team, they don't need to install dependencies to run your application. They can use Docker to pull up your isolated application package and run it. You can run multiple application having different dependencies on the same machine.
 
