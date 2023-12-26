@@ -1,9 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 // Initialize an app
 const app = express();
 const PORT = 8000;
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Connect to MongoDB Database
 mongoose.connect("mongodb://127.0.0.1:27017/uservisits", {
@@ -40,14 +44,9 @@ const incrementVisitCount = async (req, res, next) => {
   }
 };
 
-// API to get the visit count
-app.get('/api/visits', (req, res) => {
+// API to get the visit count and increment it
+app.get('/api/visits', incrementVisitCount, (req, res) => {
   res.send(`${res.locals.visitCount}`);
-});
-
-// API to increment the visit count
-app.get('/api/visits/increment', incrementVisitCount, (req, res) => {
-  res.send(`Incremented visit count from ${res.locals.visitCount - 1} tp ${res.locals.visitCount}.`);
 });
 
 // Start the server

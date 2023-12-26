@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Rubik+Doodle+Shadow&display=swap');
 
-.home-container {
-  text-align: center;
-}
-
-.home-heading {
-  font-size: 2.5rem;
-  font-family: 'Poppins', sans-serif;
+.counter-heading {
+    font-size: 7rem;
+    font-family: 'Rubik Doodle Shadow', cursive;
 }
