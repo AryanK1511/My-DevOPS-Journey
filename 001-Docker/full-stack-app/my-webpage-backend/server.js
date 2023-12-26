@@ -10,7 +10,7 @@ const PORT = 8000;
 app.use(cors());
 
 // Connect to MongoDB Database
-mongoose.connect("mongodb://127.0.0.1:27017/uservisits", {
+mongoose.connect("mongodb://db:27017/uservisits", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
