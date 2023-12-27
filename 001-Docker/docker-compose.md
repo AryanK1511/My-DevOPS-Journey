@@ -2,13 +2,6 @@
 
 Allows you to run multi-container applications.
 
-### Networking in Docker Compose
-- Docker comes with an embedded DNS server.
-- It contains the name and IP of the containers.
-- Inside each container, we have a component called DNS resolver. This DNS resolver talks to the DNS server to find the IP address of the target container.
-- So when we ping the API container from within another container, the DNS resolver asks the server, "What is the IP address of the API machine / container ?". The DNS server returns the IP address and then the container is able to ping the API container using its IP address.
-- So each container has an IP address and is part of a network.
-
 ## Docker Compose Basics:
 
 - Create a Docker Compose File (docker-compose.yml).
@@ -181,3 +174,10 @@ docker-compose down --volumes
 ```bash
 docker system prune -a
 ```
+
+## Networking in Docker Compose
+- Docker comes with an embedded DNS server.
+- It contains the name and IP of the containers.
+- Inside each container, we have a component called DNS resolver. This DNS resolver talks to the DNS server to find the IP address of the target container.
+- So when we ping the API container from within another container, the DNS resolver asks the server, "What is the IP address of the API machine / container ?". The DNS server returns the IP address and then the container is able to ping the API container using its IP address.
+- So each container has an IP address and is part of a network.
