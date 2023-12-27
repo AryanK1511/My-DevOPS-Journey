@@ -160,4 +160,42 @@ CMD [“echo”, “Hello World”]
 - Images are built in layers. Each layer is an immutable file, but is a collection of files and directories. 
 - The last layer can be used to write out data to. 
 - Layers receive an ID, calculated via a SHA 256 hash of the layer contents. Thus, if the layer contents change - Notice the IMAGE ID below and the Hash Values given above, the first 12 characters of the hash are equal to the IMAGE ID, the SHA 256 hash changes as well. 
+
 > **Note:** The Image ID listed by docker commands (ie ‘docker images’) is the first 12 characters of the hash. These hash values are referred to by ‘tag’ names.
+
+## Docker Engine Architecture
+The Docker engine architecture involves several components working together to manage and run containers. Here's an overview of the key components: Docker daemon, runc, containerd, and shim.
+
+### Docker Daemon (dockerd):
+
+- The Docker Daemon (dockerd) is the core background process responsible for managing Docker containers on a host system.
+- It listens for Docker API requests and manages container lifecycle, networking, storage, and more.
+- It communicates with the container runtime (e.g., containerd) to start and manage containers.
+
+### Container Runtime (runc):
+- The Container Runtime is responsible for executing and managing containers. - - Docker uses a default container runtime called **runc**.
+- **runc** is an industry-standard tool for running containers. It is the reference implementation for the **Open Container Initiative (OCI)** runtime specification.
+- When you run a Docker container, runc is responsible for creating and executing the container process in an isolated environment.
+
+### Containerd:
+
+- Containerd is an industry-standard core container runtime that manages the complete container lifecycle of its host system.
+- It is designed to be embedded into larger systems and provides an API for higher-level container orchestration tools (e.g., Docker Daemon, Kubernetes).
+- Docker Daemon communicates with containerd to delegate container management tasks. 
+- Docker Daemon uses the containerd API to interact with containers.
+
+### Shim:
+
+- The shim is a lightweight component that serves as a bridge between the Docker Daemon and the container runtime (runc).
+- The primary purpose of the shim is to handle communication between the Docker Daemon and the container runtime. It acts as an intermediary to manage the container's lifecycle.
+- The shim process is created by the Docker Daemon for each container and ensures that the container process started by runc is properly managed and communicates back to the Docker Daemon.
+
+> In summary, the Docker architecture involves the Docker Daemon, which manages containers using a container runtime (e.g., runc). containerd is a higher-level container runtime that is used by the Docker Daemon to interact with and manage containers. The shim acts as a communication bridge between the Docker Daemon and the container runtime to ensure proper container lifecycle management. This modular architecture allows flexibility and compatibility with different container runtimes while providing a consistent interface for users and orchestration tools.
+
+#### File names in Linux:
+- **Docker Daemon:** dockerd
+- **containerd:** docker-containerd
+- **shim:** docker-containerd-shim
+- **runc:** docker-runc
+
+![Docker Engine Architecture](./assets/docker-engine.jpeg)
