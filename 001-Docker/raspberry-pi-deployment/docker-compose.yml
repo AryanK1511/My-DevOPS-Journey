@@ -14,7 +14,7 @@ services:
       DB_URL: mongodb://db/uservisits
     restart: always
   db:
-    image: aryank1511/my_repo:database
+    image: mongo:4.0-xenial
     ports:
       - "27017:27017"
     volumes:
