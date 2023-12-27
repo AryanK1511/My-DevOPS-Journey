@@ -13,13 +13,13 @@ services:
     environment:
       DB_URL: mongodb://db/uservisits
     restart: always
-  db:
-    image: arm32v7/mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - my-webpage:/data/db
-    restart: always
+#   db:
+#     image: arm32v7/mongo
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - my-webpage:/data/db
+#     restart: always
 
-volumes:
-  my-webpage:
+# volumes:
+#   my-webpage:
