@@ -116,3 +116,48 @@ Containers are composed of **Control Groups** and **Namespaces**. **Namespaces**
 - **/etc/docker/daemon.json**: Docker Engine Configuration (might not exist at first).
 
 ## How does Docker work underneath the hood?
+
+### Docker Architecture
+
+![Docker Architecture](./assets/architecture.png)
+
+- Docker uses a client-server architecture. 
+- The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers.
+
+#### Docker daemon
+
+It listens to the API requests being made through the Docker client and manages Docker objects such as images, containers, networks, and volumes.
+
+#### Docker client
+
+This is what you use to interact with Docker. When you run a command using docker, the client sends the command to the daemon, which carries them out. The Docker client can communicate with more than one daemon.
+
+#### Docker registries
+
+This is where Docker images are stored. Docker Hub is a public registry that anyone can use. When you pull an image, Docker by default looks for it in the public registry and saves the image on your local system on DOCKER_HOST. You can also store images on your local machine or push them to the public registry.
+
+### Dockerfile
+
+- Describes steps to create a Docker image. 
+- It’s like a recipe with all ingredients and steps necessary in making your dish. 
+- This file can be used to create Docker Image. These images can be pulled to create containers in any environment. 
+- These images can also be store online at docker hub. 
+- When you run docker image you get docker containers. The container will have the application with all its dependencies.
+
+```yaml
+FROM ubuntu
+MAINTAINER Aryan Khurana <aryankhurana2324@gmail.com>
+RUN apt-get update
+CMD [“echo”, “Hello World”]
+```
+
+### Docker Image
+
+- A Docker Image is a file that defines a Docker Container. 
+- It is similar in concept to a snapshot of a VM. 
+- A container that moves from one Docker environment to another with the same OS will work without changes because the image includes all of the dependencies needed to execute the code.
+- Docker Image is run to create a docker container. Images are immutable. Once built, the files making up an image do not change. Images can be stored locally or remote locations like hub.docker.com.
+- Images are built in layers. Each layer is an immutable file, but is a collection of files and directories. 
+- The last layer can be used to write out data to. 
+- Layers receive an ID, calculated via a SHA 256 hash of the layer contents. Thus, if the layer contents change - Notice the IMAGE ID below and the Hash Values given above, the first 12 characters of the hash are equal to the IMAGE ID, the SHA 256 hash changes as well. 
+> **Note:** The Image ID listed by docker commands (ie ‘docker images’) is the first 12 characters of the hash. These hash values are referred to by ‘tag’ names.
